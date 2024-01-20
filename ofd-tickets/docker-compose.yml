@@ -1,0 +1,23 @@
+version: "3.8"
+services:
+  alfa_cup:
+    build: .
+    ipc: "host"
+    network_mode: host
+    container_name: alfa_cup
+    restart: always
+    volumes:
+      - '.:/app'
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities:
+                - gpu
+    environment:
+      - VERSION=latest
+      - NVIDIA_VISIBLE_DEVICES=0 
+      - NVIDIA_DRIVER_CAPABILITIE=all
+    entrypoint: tail -f /bin/bash
+
+

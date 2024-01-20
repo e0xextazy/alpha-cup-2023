@@ -1,0 +1,4 @@
+{
+    "image": "mbaushenko/first:11.0",
+    "entry_point": "python3 inference.py"
+}
